@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H.M Bank Inicio</title>
+    <link rel="shortcut icon" href="../web/assets/Mi proyecto-1.png" type="image/x-icon">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./style3.css">
+    <link rel="stylesheet" href="./styleindex.css">
+</head>
+<body class="bodyhome">   
+  <div class=" d-flex flex-column" id="app"> 
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog  modal-dialog-centered">
+        <div class="modal-content d-flex flex-column justify-content-center align-items-center">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Activacion de email</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-white">
+            Ingrese el codigo de validacion que se encuentra en su email para continuar
+          </div>
+          <input class="input-validacion" v-model="codigoActivacion" type="text">
+          <p id="texto-validacion-incorrecto" class="text-danger"> </p>
+          <div class="modal-footer">
+            <button @click="validarCliente()" type="button" class="btn btn-primary">Enviar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main id="arriba" class="d-flex flex-column mainhome">
+        <div class="headerhome d-flex flex-column align-items-center  ">
+            <div class="d-flex bancopresentacion flex-column align-items-center gap-4">
+            <img class=" logoempresa animate__animated animate__backInDown justify-self-start" src="../web/assets/Mi proyecto-1.png" alt="">
+            <p class="text-white fw-bolder display-6 animate__animated animate__slideInLeft ">H.M hermanos </p>
+            <h3 class="text-white text-center animate__animated animate__rotateInUpLeft animate__delay-2s usatuemaildisplay" >Te conocemos, te cuidamos y te acompañamos</h3>
+            </div>
+            <div class="container  " id="container">
+              <div class="form-container sign-up-container">
+                <form class="formcrear" action="#">
+                  <h1 class="usatuemail usatuemaildisplay2">Hacete Cliente</h1>              
+                  <span class="usatuemail usatuemaildisplay">Usa tu email para registrarte</span>
+                  <div class="d-flex gap-1 nombreyapellido"> 
+                  <input id="nombre" class="text-white colorinput"  type="text" placeholder="Nombre" v-model="nombre" />
+                  <input id="apellido" class="text-white colorinput"  type="text" placeholder="Apellido" v-model="apellido"/> </div>
+                  <input class="text-white colorinput" type="email"  placeholder="Email" v-model="emailregistro" />
+                  <div class="w-100 divdelinput d-flex align-items-center">
+                    <input class="text-white colorinput colorinputp w-100" minlength="8" type="password" placeholder="Contraseña" v-model="password" id="contraseñainicio2"/>
+                      <h5 v-if="(password == repetirpassword && password != '' && repetirpassword != '' && password.length > 7)|| (password != ''  && password.length >= 8)" class="text-success fw-bolder contraseñasbien3">
+                        <span class="material-symbols-outlined fw-bolder">done</span>
+                       </h5> 
+                       <a class="contraseñasbien contraseñasbien2" type="menu" @:click="mostrarcontra(2,2,2)">
+                        <span  id="mostrarojo12" class="material-symbols-outlined">visibility</span> 
+                        <span id="mostrarojo22" style="display: none;" class="material-symbols-outlined">visibility_off </span>
+                      </a>
+                  </div>
+                  <p v-if="password.length < 8 && password.length != 0 " class="m-0 p-0 text-decoration-none">Minimo 8 digitos</p>
+                  <div class="w-100 divdelinput d-flex align-items-center">
+                    <input class="text-white colorinput colorinputp w-100" minlength="8" type="password" placeholder="Repetir Contraseña" v-model="repetirpassword"id="contraseñainicio3" />
+                    <a class="contraseñasbien contraseñasbien2" type="menu" @:click="mostrarcontra(3,3,3)">
+                      <span  id="mostrarojo13" class="material-symbols-outlined"> visibility</span> 
+                     <span id="mostrarojo23" style="display: none;" class="material-symbols-outlined"> visibility_off</span>
+                      </a>
+                    <h5 v-if="password == repetirpassword && password != '' && repetirpassword != '' && repetirpassword.length >= 8" class="text-success fw-bolder contraseñasbien3">
+                      <span class="material-symbols-outlined fw-bolder">done</span>
+                     </h5> 
+                     <h5 v-if="password != repetirpassword && password != '' && repetirpassword != ''" class="text-danger fw-bolder contraseñasbien3">
+                      <span class="material-symbols-outlined">close</span>                     
+                    </h5>
+                  </div>
+                  <h5 v-if="error==403" class="text-danger fw-bolder">Este email ya esta en uso</h5>
+                  <button @:click.prevent="registrarse()" type="submit" class="iniciarseccion registrate2">Registrate</button>
+                  <button class=" mt-4 bottonregistrate" id="signIn"><span class="material-symbols-outlined">
+                    arrow_back
+                    </span></button>
+                </form>               
+              </div>
+              <div class="form-container sign-in-container">
+                <form action="#">
+                  <h1 class="p-3 mb-3 ">Iniciar Sesión</h1>                                 
+                  <input class="text-white colorinput" type="email" placeholder="Email" v-model="email"/>
+                  <div class="w-100 divdelinput d-flex align-items-center"><input class="text-white colorinput" type="password" placeholder="Contraseña"  v-model="contraseña" id="contraseñainicio1"/>
+                    <a class="contraseñasbien contraseñasbien2" type="menu" @:click="mostrarcontra(1,1,1)"><span  id="mostrarojo11" class="material-symbols-outlined">
+                      visibility
+                      </span> <span id="mostrarojo21" style="display: none;" class="material-symbols-outlined">
+                        visibility_off
+                        </span></a> </div>
+                
+                  <h5 v-if="error==401" class="text-danger fw-bolder">Email y contraseña incorrectos</h5>
+                  <a href="#">Olvidaste tu contraseña?</a>
+                  <button  @:click.prevent="iniciarseccion()"   class="iniciarseccion">Iniciar</button>
+                  <button  id="signUp" class="bottonregistrate">Si sos nuevo registrate</button>
+                </form>
+              </div>
+              <div class="overlay-container">
+                <div class="overlay negrito d-flex align-items-end">
+              
+                  <img id="imagenparalogin" class="imagenlogin" src="../web/assets/imagenlogin.png" alt="">
+                  
+                   <div class="overlay-panel overlay-right">
+                    <h1></h1>
+                    <p></p>
+                    
+                  </div> 
+                </div>
+              </div>
+            </div>
+        </div>        
+        <video muted autoplay loop>
+            <source src="../web/assets/Mivideo1.mp4" type="video/mp4">
+        </video>     
+    </main>
+    </div>
+    <div class="d-flex justify-content-between botonsitos align-items-center">
+        <div class="arrow ms-5"></div>
+        <a href="#iralostitulos" class="btn btn-grad fw-bolder animate__animated animate__shakeY animate__delay-4s d-flex justify-content-around align-items-center" ><span><div class="arrowizquierda "></div></span>Ver mas<span><div class="arrowderecha"></div></a>
+        <div class="arrow me-5"></div>
+    </div>
+  </div>
+  <div class=" d-flex flex-column ">        
+      <div  class="corte1  d-flex justify-content-center align-items-center gap-5">
+        <img class="displayanimaciones" id="iralostitulos" src="../web/assets/Businesssolution-amico.png" alt="" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+        <img  src="../web/assets/Newemployee-amico.png" alt="" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+        <img class="displayanimaciones" src="../web/assets/Businessvision-amico.png" alt=""data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+      </div>
+      <div  class="titulos1  d-flex justify-content-center align-items-center gap-5">
+        <h3 class="text-white  text-center fw-bolder ">Inversiones</h3>
+        <a href="#iralfinal" class="btn btn-grad botonvermas2 fw-bolder animate__animated animate__shakeY animate__delay-4s d-flex justify-content-around align-items-center" ><span><div class="arrowizquierda "></div></span>Ver mas<span><div class="arrowderecha"></div></a>
+        <h3 class="text-white  text-center fw-bolder ">Para tu futuro</h3>
+      </div>
+      <div class="corte2 d-flex justify-content-between   ">
+        <div class="ms-5 imagenescorte2 displayanimaciones  " data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500"><img src="../web/assets/Onlinetransactions-amico.png" alt=""><h3 class="text-center fw-bolder  p-1">Transacciones en el acto</h3></div>
+        <div class="mb-5  imagenescorte2 align-self-end" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">><img src="../web/assets/Financeleaders-amico.png" alt=""><h3 class="text-center fw-bolder  p-1 ">Prestamos a tasas unicas</h3></div>
+        <div class="me-5 imagenescorte2 displayanimaciones" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500"><img src="../web/assets/Innotime-amico.png" alt=""><h3 class="text-center fw-bolder p-1 ">Compras desde casa</h3></div>
+      </div>
+  </div>
+  <div id="iralfinal" class="d-flex flex-column corte3 align-items-center justify-content-center">
+        <h2 class="text-white bg-transparent mt-4 display-5 fw-bolder" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">Todavia no pediste tu Tarjeta?</h2>
+        <div class="d-flex flex-column justify-content-center imagencarrusel imgcarru h-100 align-items-center w-100 ">
+          <div id="carouselExampleControls" class="carousel slide w-100 imgcarru d-flex align-items-center" data-bs-ride="carousel">
+            <div class="carousel-inner rounded-pill imagencarrusel imgcarru d-flex justify-content-center align-items-center">
+              <div class="carousel-item active  imagencarrusel imgcarru"><img src="../web/assets/imagen1.png" class="d-block imagencarrusel imgcarru" alt="..."></div>
+              <div class="carousel-item  imagencarrusel imgcarru"><img src="../web/assets/HMBank.jpg" class="d-block imagencarrusel imgcarru" alt="..."></div>
+              <div class="carousel-item imagencarrusel imgcarru"><img src="../web/assets/imagen2.png" class="d-block  imagencarrusel imgcarru" alt="..."></div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <a href="#arriba" class="btn btn-grad bottonvolverarriba fw-bolder mt-2 d-flex justify-content-around align-items-center" data-aos="fade-down"data-aos-easing="linear"data-aos-duration="1500">Volver Arriba</a>
+
+        </div>
+  </div>
+
+  
+
+<!--   <footer class="d-flex justify-content-center align-items-center footerspace">
+    <div class="cardfooter1 d-flex  gap-3">
+        <div class="w-20"> <a class="p-2 w-100  linkfooteractive fw-bolder" href="#">Inicio</a> </div>
+        <div class="w-20"> <a class="p-2 w-100  linkfooter" href="./account.html">Cuentas</a></div>
+        <div class="w-20"> <a class="p-2 w-100  linkfooter" href="">Transacciones</a></div>
+        <div class="w-20"> <a class="p-2 w-100  linkfooter" href="">Prestamos</a></div>
+        <div class="w-20"> <a class="p-2 w-100  linkfooter" href="./cards.html">Tarjetas </a></div>
+    </div>
+    <div class="cardfooter d-flex justify-content-center"> <img class="cardfooterimg"src="../web/assets/Mi proyecto-1.png" alt=""></div>
+    <div class="cardfooter2 d-flex text-end flex-column text-white">
+        <h3 class="text-white  w-100">Contacto</h3>
+        <p>Sarmiento 238, Buenos Aires Capital Argentina</p>
+        <p>Tel:011-421456-123</p>
+        <p>Email:Hmhomebank@gmail.com</p>
+    </div>
+</footer> -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>AOS.init({});</script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+    <script src="./index.js"></script>
+    <script src="./login.js"></script>
+</body>
+</html>

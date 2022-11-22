@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manager</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 class="w-50 text-center mt-5 display-3">Client List</h1>
+  <div id="app">
+    <div class="d-flex">
+      <div class="divcentral d-flex flex-column mt-5">
+        <form class="ms-5" @submit.prevent="">
+          <div class="mb-3 w-50">
+            <label for="nombre" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="nombre" placeholder="David" v-model="elnombre" required>
+          </div>
+          <div class="mb-3 w-50">
+            <label for="apellido" class="form-label">Last name:</label>
+            <input type="text" class="form-control" id="apellido" placeholder="Doe" v-model="elapellido" required>
+          </div>
+          <div class="mb-3 w-50">
+            <label for="exampleInputEmail1" class="form-label">Email address:</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              placeholder="david@aol.com" v-model="elemail" required>
+          </div>
+
+          <button type="submit" class="btn btn-success" v-on:click="addClient()" href="">Add client</button>
+          <p v-if="mensaje1" class="text-danger">Este email ya esta guardado</p>
+        </form >
+        <div class="tabla">
+          <h2 class="ms-5 mt-4 mb-4">Client List</h2>
+          <table class="table ms-5">
+            <thead>
+              <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th colspan="2" scope="col"></th>
+              </tr>
+            </thead>
+            <tbody v-for="client in arrayCliente">
+              <tr>
+                <td>{{client.firstName}}</td>
+                <td>{{client.lastName}}</td>
+                <td >{{client.email}}</td>
+                <td>
+                  <p>                    
+                      <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                      :data-bs-target="'#'+ client.firstName  + client.lastName " aria-expanded="false"
+                      :aria-controls="client.firstName + client.lastName" @:click="modificarNombre(client)">Edit</button> 
+                  </p>                   
+                  
+                  
+                </td>
+                <td><button @:click="deleteCliente(client)" type="button" class="btn btn-danger">X</button></td>
+                <!--   <td><button @:click="deleteall()" type="button" class="btn btn-danger">borrartodo</button></td> -->
+              </tr>
+              <tr>
+                <td colspan="5">
+              <div class="collapse multi-collapse " :id="client.firstName + client.lastName">
+                <div class="card card-body  ">
+                  <form class="ms-5 ">
+                    <div class="mb-3 w-100">
+                      <label for="nombre" class="form-label">Name:</label>
+                      <input type="text" class="form-control" id="nombre"  v-model="cambiarNombre">
+                    </div>
+                    <div class="mb-3 w-100">
+                      <label for="apellido" class="form-label">Last name:</label>
+                      <input type="text" class="form-control" id="apellido"  v-model="cambiarApellido">
+                    </div>
+                    <div class="mb-3 w-100">
+                      <label for="exampleInputEmail1" class="form-label">Email address:</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                         v-model="cambiarEmail">
+          
+                    </div>
+          
+                    <button type="button" class="btn btn-success" @:click="cambiarCliente(client)"data-bs-toggle="collapse"
+                    :data-bs-target="'#'+ client.firstName  + client.lastName " aria-expanded="false"
+                    :aria-controls="client.firstName + client.lastName" >Save</button>
+                  </form>
+                </div>
+              </div>
+            </td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="divdatos d-flex flex-column me-5">
+
+          </div>
+
+        </div>
+
+      </div>
+      <pre>{{laurl}}</pre>
+    </div>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+  <script src="./manager.js"></script>
+</body>
+
+</html>

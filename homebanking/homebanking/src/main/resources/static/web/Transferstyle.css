@@ -1,0 +1,184 @@
+
+.cuentas{
+ height: 100%;
+ width: 30%;
+ margin-bottom: 1rem;
+ justify-content: center;
+ background-color: #160015d2 ;
+  border-radius: 2rem;
+  color: white;
+  text-decoration: none;
+  box-shadow:  #eae6e6 .1rem .1rem .2rem .2rem;
+}
+.contenedorcards{
+    justify-content: flex-start !important;
+    
+}
+
+.cuentaSeleccionada{
+    background-color: white ;
+    color:#160015 ;
+}
+.formTransferencia{
+    height: 60vh;
+   /*  background-color: #160015be; */
+    width: 50%;
+    border-radius: 1rem;
+    background-color: #eae6e6bf;
+}
+.formTransferencia label{
+    width: 100%;
+    font-size: 1.3rem;
+    font-weight: bolder;
+
+}
+.textocomun{
+    font-size: 1rem !important;
+    font-weight: normal !important;
+}
+.formTransferencia input , select{
+    width: 40%;
+    height: 4vh;
+    border-radius: 1rem;
+    background-color: #160015;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bolder;
+    /* text-align: center; */
+ 
+  
+    
+}
+.formTransferencia input{
+    padding-left: 1.5rem ;
+}
+.formTransferencia input::placeholder{
+    color: white;
+    /* text-align: center; */
+   /*  padding-left: 1rem !important; */
+}
+.textoDecuenta{
+    font-size: 1.3rem;
+    font-weight: bolder;
+}
+.botonConfirmarTransferencia{
+    /* background-image: linear-gradient(to right, #fff8fe 0%, #ffffff 31%, #ffffff 100%); */
+    background-image: linear-gradient(to right, #160015   0%,#160015 30%,   #160015  40%,#160015  60%,  #fcfcfc 100%);
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    /* color: #240020; */
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    font-size: 2rem;
+    width: 40%;
+    align-self: center;
+}
+.botonConfirmarTransferencia:hover {
+    /* color: white !important; */
+    color: #240020 !important; 
+    background-position: right center;
+    background-image: linear-gradient(to right, #fff8fe 0%, #ffffff 31%, #ffffff 100%) !important;
+   /*  background-image: linear-gradient(to right, #160015   0%,#160015 30%,  #fcfcfc   40%,#160015  60%, #160015 100%) !important; */
+    text-decoration: none;
+    box-shadow: 0 0 20px #eee;;
+    transition: 2s;
+  }
+  .swal2-popup{
+    background-color: #160015 !important;
+    color: white !important;
+    font-size: 1.5rem !important;
+    font-weight: bolder !important;
+  }
+  .swal2-confirm{
+    background-image: linear-gradient(to right, #fff8fe 0%, #ffffff 31%, #ffffff 100%)  !important;
+    text-align: center  !important;
+    text-transform: uppercase  !important;
+    transition: 0.5s  !important;
+    background-size: 200% auto  !important;
+    color: #240020  !important;
+    box-shadow: 0 0 20px #eee  !important;
+    border-radius: 10px  !important;
+    display: block  !important;
+    font-size: 2rem  !important;
+    width: 100%  !important;
+    align-self: center  !important;
+  }
+  @media screen and (max-width: 1440px){ 
+  .formTransferencia{
+    width: 70%;
+    height: 70vh;
+  }
+  .formTransferencia input , select{
+    width: 30%;
+   
+  }
+
+}
+@media screen and (max-width: 1024px){ 
+    .divisorcards{
+        height: 100% !important;
+        justify-content: flex-start !important;
+    }
+    .formTransferencia{     
+      height: 80% ;
+    }
+    .formTransferencia input , select{
+      width: 30%;
+      height: 6vh ;
+     
+    }.formTransferencia label, .labeel{
+        flex-direction: row !important;
+        justify-content:space-between !important;
+        padding-left: 10px;
+        padding-right: 10px;
+      
+      
+    }
+    .textoDelForm{
+        align-items: flex-start !important;
+    }
+    .form1{
+        justify-content: flex-start !important;
+        gap: 0 !important;
+    }
+  
+  }
+  @media screen and (max-width: 768px){
+    .divisorcards{
+        width: 100% !important;
+    }
+    .formTransferencia{     
+       width:  90% ;
+       height: 70%;
+      }
+  }
+  @media screen and (max-width: 600px){
+    h1{
+      font-size: 2.5rem !important;
+      text-align: center !important;
+    }
+    .formTransferencia label, .labeel{
+        flex-direction: column !important;
+    }
+    .formTransferencia input , select{
+        width: 90%;
+        height: 6vh ;
+       
+      }
+      .botonConfirmarTransferencia{
+        width: 90%;
+      }
+      .textoDelForm{
+        align-items: center !important;
+    }
+  }
+  @media screen and (max-width: 320px){
+    .formTransferencia input , select{
+        height: 8vh ;
+    }
+}
+

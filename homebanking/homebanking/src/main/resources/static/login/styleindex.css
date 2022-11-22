@@ -1,0 +1,445 @@
+@import url("./stylelogin.css");
+.menuhome1{
+    height: 5vh;
+    background-color: #160015;
+  }
+  
+  .menuhome{
+    height: 100%;
+     width: 80%;
+     align-self: center;
+  }
+  .mainhome {
+    height: 90vh;
+  }
+  .menuhome img{
+    height: 100%;
+    width: 20%;
+  }
+  .amenuhome{
+    font-size: 1.8rem;
+  }
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+  }
+  .headerhome {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .logoempresa {
+    width: 25%;
+    height: 30%;
+    animation: rotation 3s linear
+  }
+  .headerhome p {
+    text-decoration: underline .5rem;
+    text-decoration-color: rgba(48, 0, 40, 1)
+  }
+  .headerhome h3 {
+    padding: 1rem;
+    background-color: #240024;
+    border-radius: 1rem;
+    width: 768px;
+  }
+  
+  .btn-grad {
+    background-image: linear-gradient(to right, #fff8fe 0%, #ffffff 31%, #ffffff 100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #240020;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    font-size: 2rem;
+    width: 30%;
+    align-self: center;
+  }
+  .btn-grad:hover {
+    color: white !important;
+    background-position: right center;
+    background-image: linear-gradient(to right, #160015   0%,#160015 30%,  #fcfcfc   40%,#160015  60%, #160015 100%) !important;
+    text-decoration: none;
+    box-shadow: 0 0 20px #eee;;
+    transition: 2s;
+  }
+  .botonvermas2{
+    width: 15% !important;
+
+  }
+  .botonsitos {
+    height: 10vh;
+    background-color: #160015;
+  }
+  .modal-content{
+    background-color: #160015 !important;
+  }
+  .input-validacion{
+    width: 80%;
+  }
+  .swal2-popup{
+    background-color: #160015 !important;
+    color: white !important;
+    font-size: 1.5rem !important;
+    font-weight: bolder !important;
+  }
+  @keyframes rotation {
+    0% {}
+  
+    33% {
+      transform: rotate3d(1, 1, 1, 45deg);
+      ;
+    }
+  
+    66% {
+      transform: rotate3d(2, -1, -1, -0.2turn);
+      ;
+    }
+  
+  
+    100% {
+      transform: rotate3d(0);
+      ;
+  
+    }
+  
+  }
+  .arrow { 
+    width: 20px;
+    height: 20px;
+    border-right: 2px white solid;
+    border-bottom: 2px white solid;
+    animation: arrow 7s infinite;
+  }
+  .arrowizquierda {
+    width: 20px;
+    height: 20px;
+    border-right: 2px rgba(31, 1, 31, 1) solid;
+    border-bottom: 2px rgba(31, 1, 31, 1) solid;
+    animation: arrowizq 7s infinite;
+  }
+  .arrowderecha {
+    width: 20px;
+    height: 20px;
+    border-right: 2px rgba(31, 1, 31, 1) solid;
+    border-bottom: 2px rgba(31, 1, 31, 1) solid;
+    animation: arrowderch 7s infinite;
+  }
+  @keyframes arrow {
+    0% {
+      transform: translateY(-15px) rotate(45deg);
+      opacity: 0;
+    }
+  
+    15% {
+      transform: translateY(-10px) rotate(45deg);
+      opacity: 1;
+    }
+  
+    30% {
+      transform: translateY(5px) rotate(45deg);
+    }
+  
+    60% {
+      transform: rotate(45deg) translateY(0px);
+    }
+  
+    75% {
+      transform: rotate(45deg) translateY(0px);
+  
+    }
+  
+    90% {
+      transform: rotate(45deg) translateY(0px);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: rotate(45deg) translateY(0px);
+      opacity: 0;
+  
+    }
+  }
+  
+  @keyframes arrowizq {
+    0% {
+      transform: translatex(-15px) rotate(-45deg);
+      opacity: 0;
+    }
+  
+    15% {
+      transform: translatex(-10px) rotate(-45deg);
+      opacity: 1;
+    }
+  
+    30% {
+      transform: translatex(5px) rotate(-45deg);
+    }
+  
+    60% {
+      transform: rotate(-45deg) translatex(0px);
+    }
+  
+    75% {
+      transform: rotate(-45deg) translatex(0px);
+  
+    }
+  
+    90% {
+      transform: rotate(-45deg) translatex(0px);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: rotate(-45deg) translatex(0px);
+      opacity: 0;
+  
+    }
+  }
+  
+  @keyframes arrowderch {
+    0% {
+      transform: translatex(15px) rotate(135deg);
+      opacity: 0;
+    }
+  
+    15% {
+      transform: translatex(10px) rotate(135deg);
+      opacity: 1;
+    }
+  
+    30% {
+      transform: translatex(-5px) rotate(135deg);
+    }
+  
+    60% {
+      transform: rotate(135deg) translatex(0px);
+    }
+  
+    75% {
+      transform: rotate(135deg) translatex(0px);
+  
+    }
+  
+    90% {
+      transform: rotate(135deg) translatex(0px);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: rotate(135deg) translatex(0px);
+      opacity: 0;
+    }
+  }
+  .corte1 {
+    width: 100%;
+    height: 50vh;
+    background-image: url(../web/assets/corte1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .corte1 img {
+    width: 15%;
+    height: 60%;
+  }
+  .titulos1 {
+    height: 5vh;
+    background-color: #160015;
+  }
+  .titulos1 h3 {
+    width: 20%;
+  }
+  .corte2 {
+    width: 100%;
+    min-height: 50vh;
+    background-image: url(../web/assets/corte2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .corte2 div {
+    width: 15%;
+    height: 60%;
+  }
+  .corte2 img {
+    width: 100%;
+    height: 100%;
+  }
+  .corte2 h3 {
+    font-size: 2rem;
+    color: white;;
+    background-color:#9F64A9;
+    border-radius: 2rem;
+  }
+  .corte3{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(22,0,21,1) 7%, rgba(255,255,255,1) 10%, rgba(22,0,21,1) 12%, rgba(22,0,21,1) 19%, rgba(22,0,21,1) 81%, rgba(22,0,21,1) 85%, rgba(255,255,255,1) 88%, rgba(22,0,21,1) 93%);;
+  }
+  #carouselExampleControls{
+    height: 60% !important;
+    width: 60% !important;
+    border-radius: 2rem !important;
+  }
+  .imagencarrusel{
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .imgcarru{
+    min-width: 0% !important;
+    margin: 0 !important;
+   }
+  @media screen and (max-width:1440px) {
+    .bancopresentacion{
+      height: 30%;
+      gap: .5rem !important;
+    }
+    .botonvermas2{
+      width: 20% !important;
+      padding: 0 !important;
+    }
+  }
+  @media screen and (max-width:1280px){
+    
+    .bancopresentacion{
+      height: 25%;
+      gap: 0!important;
+    }
+    .logoempresa{
+      display: none;
+    }
+    .bottonvolverarriba{
+      padding: 0 !important;
+    }
+    .btn-grad{
+      padding: 0 !important;
+    }
+    .corte1 img{
+      width: 20%;
+    }
+    .corte2 h3{
+      font-size: 1rem;
+    }
+    .imagenescorte2{
+      width: 25% !important;
+    }
+
+  }
+  @media screen and (max-width:884px){
+    .corte1 img{
+      width: 27%;
+    }
+    .corte2 img{
+      width: 100%;
+    }
+    .botonvermas2{
+      width: 30% !important;
+      padding: 0 !important;
+    }
+  
+    .imagenescorte2{
+      width: 30% !important;
+    }
+    .imgcarru{
+     min-width: 100% !important;
+     margin: 0 !important;
+    }
+    .imagenescorte2{
+      width: 30% !important;
+    }
+    .imgcarru{
+      min-width: 100% !important;
+      height: 100% !important;
+      margin: 0 !important;
+      border-radius: 0  !important;
+     }
+
+   
+  }
+  @media screen and (max-width:767px){
+ .mainhome{
+  height: 100vh;
+ }
+  .bancopresentacion{
+  width: 100%;
+  height: 25%;
+}
+.headerhome h3{
+width: 90% !important;
+font-size: 1rem;
+}
+.botonsitos{
+  display: none !important;
+}
+.btn-grad{
+  display: none !important;
+}
+.titulos1{
+  justify-content: space-around !important;
+}
+.titulos1 h3{
+ width: 40% !important;
+}
+.corte3 h2{
+font-size: 1.5rem;
+margin-top: .5rem !important;
+}.displayanimaciones{
+  display: none;
+}
+.corte1 img{
+  width: 100%;
+  height: 100%;
+}
+.imagenescorte2{
+  width: 100% !important;
+  
+} 
+
+@media screen and (max-width:428px){
+  .imgcarru{ 
+    height: 90% !important;
+   }
+}
+  }
+  @media screen and (max-width:375px){
+   
+    .bancopresentacion{
+      width: 375px !important;
+      height: 20%;
+      gap: 0;
+      
+    }.bancopresentacion h3{
+      margin: 0 !important;
+      padding: .5rem !important;
+      width: 375px !important;
+
+    }.titulos1 h3{
+      width: 50% !important;
+    }
+
+    .bancopresentacion{
+      width: 315px !important;
+    }
+    }
+  
+  @media screen and (max-width:320px){
+    .imgcarru{ 
+      height: 100% !important;
+     }
+    .headerhome{
+      height: 60% !important;
+    }
+    .corte3 h2{
+  font-size: 1rem;
+ }.titulos1 h3{
+  font-size: 1rem;
+}
+  }
+ 

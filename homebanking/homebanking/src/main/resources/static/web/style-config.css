@@ -1,0 +1,116 @@
+form{
+    height: 80%;
+    width: 60%;
+    align-items: center;
+    gap: 3rem;
+    background-color: rgba(240, 248, 255, 0.801);
+    border-radius: 2rem;
+}
+p{
+    font-size: 1.3rem;
+}
+form legend{
+    width: 80%;
+    margin-top: 1rem;
+}
+label{
+   display: flex;
+   gap: 3rem;
+   width: 50%;
+   height: 4.5vh;
+   justify-content: space-between; 
+}
+label p{
+    display: flex;
+    height: 100%;
+    align-items:center ;
+}
+label input{
+    border-radius: 5px;
+    width: 50%;
+    height: 4.5vh;
+    background-color: #160015;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bolder;
+}
+.botonConfirmar{
+    /* background-image: linear-gradient(to right, #fff8fe 0%, #ffffff 31%, #ffffff 100%); */
+    background-image: linear-gradient(to right, #160015   0%,#160015 30%,   #160015  40%,#160015  60%,  #fcfcfc 100%);
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    /* color: #240020; */
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    font-size: 2rem;
+    width: 40%;
+    align-self: center;
+}
+.botonConfirmar:hover {
+    /* color: white !important; */
+    color: #240020 !important; 
+    background-position: right center;
+    background-image: linear-gradient(to right, #fff8fe 0%, #ffffff 31%, #ffffff 100%) !important;
+   /*  background-image: linear-gradient(to right, #160015   0%,#160015 30%,  #fcfcfc   40%,#160015  60%, #160015 100%) !important; */
+    text-decoration: none;
+    box-shadow: 0 0 20px #eee;;
+    transition: 1s;
+  }
+  .swal2-popup{
+    background-color: #160015 !important;
+    color: white !important;
+    font-size: 1.5rem !important;
+    font-weight: bolder !important;
+  }
+  .swal2-confirm{
+    background-image: linear-gradient(to right, #fff8fe 0%, #ffffff 31%, #ffffff 100%)  !important;
+    text-align: center  !important;
+    text-transform: uppercase  !important;
+    transition: 0.5s  !important;
+    background-size: 200% auto  !important;
+    color: #240020  !important;
+    box-shadow: 0 0 20px #eee  !important;
+    border-radius: 10px  !important;
+    display: block  !important;
+    font-size: 2rem  !important;
+    width: 100%  !important;
+    align-self: center  !important;
+  }
+  @media screen and (max-width: 1440px){
+    label{
+        width: 80%;
+    }
+  }
+  @media screen and (max-width: 1024px){
+    .divisorcards{
+        height: 90%;
+    }
+   
+  }
+  @media screen and (max-width: 425px){
+    form{
+        justify-content: flex-start !important;
+        height: 50%;
+        width: 80%;
+        
+    }
+  label{
+    flex-direction: column !important;
+    align-items: center;
+    width: 90%;
+    height: 10%;
+    gap: 0px;
+    
+  }
+  label input{
+    width: 90%;
+    height: 6vh;
+  }
+  .botonConfirmar{
+    width: 60%;
+  }
+  }

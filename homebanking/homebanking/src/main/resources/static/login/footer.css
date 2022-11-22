@@ -1,0 +1,56 @@
+footer {
+    min-height: 20vh;
+    /* background: rgb(57, 0, 57);  background: linear-gradient(90deg,  #160015 40%, rgba(255, 255, 255, 1) 48%, rgba(255, 255, 255, 1) 52%,  #160015 60%); */
+    background-color:  #160015 ;
+  }
+  footer img {
+    height: 100%;
+  }
+  .cardfooter {
+    width: 10% !important;
+    height: 100%;
+  }
+  .cardfooter1 {
+    width: 26%;
+  }
+  .cardfooter2 {
+    width: 26%;
+  }
+  .cardfooterimg {
+    height: 50%;
+    width: 60%;
+  }
+  .linkfooter {
+    text-decoration: none;
+    color: white;
+    position: relative;
+  }
+  .linkfooter::after {
+    content: "";
+    color: white;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: white;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.2s ease-in-out;
+  }
+  .linkfooter:hover {
+    color: white;
+  }
+  .linkfooter:hover::after {
+    color: white;
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  .linkfooteractive {
+    text-decoration: white .1rem underline !important;
+    color: white;
+  }
+  .linkfooteractive:hover {
+    color: white;
+  }

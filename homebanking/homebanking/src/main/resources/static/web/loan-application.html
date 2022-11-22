@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H.M Bank Prestamos</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="shortcut icon" href="./assets/Mi proyecto-1.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="sweetalert2.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="../login/style3.css">
+  <link rel="stylesheet" href="./stylecards.css">
+  <link rel="stylesheet" href="./loan-applicationstyle.css">
+</head>
+<body>
+  <div class="d-flex flex-column" id="app">   
+    <main class="d-flex flex-column maincards">
+     
+      <nav class="d-flex justify-content-between">
+        <div class="divlogo"><img class="" src="../web/assets/Mi proyecto-1.png" alt=""></div>
+        <div class="dropdown divusuario ">
+          <h4 class="h-100 d-flex align-items-center text-white">{{cliente.firstName}}</h4>
+          <button class="h-100 d-flex align-items-center divusuario me-5 " data-bs-toggle="dropdown" aria-expanded="false"> <span class="material-symbols-outlined text-end text-white">logout</span></button>
+          <ul class="dropdown-menu">
+         
+            <li><a class="dropdown-item text-white " href="./configurations.html">Perfil</a></li>
+            <li v-if="cliente.email.includes('ADMINMINDHUB') || cliente.email.includes('ADMINSUPREMO')"><a class="dropdown-item text-white " href="../admin/create-loans.html">Crear Prestamo</a></li>
+            <li v-if="cliente.email.includes('ADMINSUPREMO')"><a class="dropdown-item text-white " href="../admin/admin.html">Administrar Clientes</a></li>
+            <li><a @:click="desconectar()" class="dropdown-item text-white fw-bolder" href="#">Cerrar sesion</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="d-flex separadorcuentas">
+        <div id="contenedordelmenu" class="navbar navbar-dark navbar-expand-md contenedormenu justify-content-center" >
+          <button class="navbar-toggler boton-collaps-menu" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" @:click="expandirElMenu()" >
+              <span class="navbar-toggler-icon"></span>
+              Menu</button>  
+          <div class="h-100 collapse navbar-collapse " id="navbarSupportedContent">                                                  
+              <div class="d-flex flex-column justify-content-around align-items-center h-100 w-100 menuflex  navbar-nav-dark">                           
+                <!--   <div class="w-100 text-center nav-item"><a class="p-2 w-100 text-center linknav" href="../login/index.html">Home</a> </div> -->
+                  <div class="w-100  text-center nav-item"><a class="p-2 w-100 text-center linknav " href="./accounts.html">Cuentas</a></div>
+                  <div class="w-100 text-center nav-item"><a class="p-2 w-100 text-center linknav" href="./Transfers.html">Transferencias</a></div>
+                  <div class="w-100  text-center nav-item"><a class="p-2 w-100 text-center linknavactive fw-bolder" href="#">Prestamos</a></div>
+                  <div class="w-100  text-center nav-item"><a class="p-2 w-100 text-center linknav" href="./cards.html">Tarjetas </a></div>
+                  <img class="rounded-pill imagendelnav nav-item" src="./assets/personamenu.png" alt="">
+              </div>                
+      </div>
+  </div>
+        <div class="contenedorcards d-flex flex-column">
+
+          <div class="d-flex  align-items-center flex-column ">
+          
+            <h1 class="display-1 animate__animated animate__fadeInLeft fw-bolder">Prestamos</h1>
+            <span
+              class="material-symbols-outlined animate__animated animate__fadeInDown text-white iconobanco">account_balance</span>
+          </div>
+        <div class="divisorcards d-flex flex-column  align-items-center">   
+          {{mostrarCuotas}} 
+               
+          <form class="d-flex flex-column form1">
+            <legend class="text-center w-100">¿Que tipo de prestamo desea?</legend>
+             <select class="seleccionador text-center" v-model="tipoDePrestamo">
+              <option value="" >Seleccione una opcion</option>
+              <option v-for="prestamo in prestamos">{{prestamo.name}}</option>
+             </select>         
+          </form>
+          <form class="formPrestamo d-flex flex-column  justify-content-around" id="formHipotecario" v-if="tipoDePrestamo != ''" >
+            <label class="d-flex flex-column text-center w-100 justify-content-center align-items-center">
+             <div class="d-flex flex-column div-texto">
+               <legend>¿Que monto desea solicitar?</legend> <span>El maximo es de {{montoMaximo}}</span>
+              <p id="textoMonto" class="text-center text-danger"></p> 
+              </div>            
+              <input v-model="montoSeleccionado" type="number"> 
+            </label>
+            <div class="d-flex flex-column labeel text-center justify-content-center align-items-center ">
+              <div class="d-flex flex-column div-texto">
+              <legend>¿En cuantas cuotas desea pagar?</legend>
+              <p id="textoCuotas" class="text-center text-danger"></p></div>
+              <select v-model="cantidadDeCuotas">
+                <option value="">Elige la cantidad de coutas</option>                       
+                <option  v-for="cuota in cuotas">{{cuota}}</option>              
+              </select>
+            </div>             
+            <div class="d-flex flex-column labeel justify-content-center align-items-center">
+              <div class="d-flex flex-column div-texto">
+               <legend class="text-center">¿En que cuenta desea recibir el prestamo?</legend> 
+               <p id="textoCuenta" class="text-center text-danger"></p></div>
+              <select v-model="cuentaDestino">  
+              <option value="">Seleccione una cuenta</option>
+              <option v-for="cuenta in cuentas">{{cuenta.number}}</option>                      
+                </select></div>   
+                <p v-show="this.montoSeleccionado != '' && this.cantidadDeCuotas != '' "  class="w-100 text-center">Monto a pagar por cuota: {{new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS'}).format(montoDeCuotas)}}</p>  
+                <button @click.prevent="realizarPrestamo()" class="botonConfirmarPrestamo">Solicitar</button>       
+                  
+          </form>
+       
+         </div>
+         {{cambiarMontoCoutas}}
+         </div>
+         </div>
+      <video muted autoplay loop>
+        <source src="./assets/video10.mp4" type="video/mp4">
+      </video>
+    </main>
+  </div>
+
+  <footer class="d-flex justify-content-center align-items-center footerspace">
+    <div class="cardfooter1 d-flex  gap-3">
+
+      <!-- <div class="w-20"> <a class="p-2 w-100  linkfooter" href="../login/index.html">Home</a> </div> -->
+      <div class="w-20"> <a class="p-2 w-100  linkfooter" href="./accounts.html">Cuentas</a></div>
+      <div class="w-20"> <a class="p-2 w-100  linkfooter" href="./Transfers.html">Transferencias</a>
+      </div>
+      <div class="w-20"> <a class="p-2 w-100  linkfooteractive fw-bolder" href="#">Prestamos</a>
+      </div>
+      <div class="w-20"> <a class="p-2 w-100  linkfooter" href="./cards.html">Tarjetas </a>
+      </div>
+    </div>
+    <div class="cardfooter d-flex justify-content-center"> <img class="cardfooterimg"
+        src="../web/assets/Mi proyecto-1.png" alt=""></div>
+
+    <div class="cardfooter2 d-flex text-end flex-column text-white">
+      <h3 class="text-white  w-100">Contacto</h3>
+      <p>Sarmiento 238, Buenos Aires Capital Argentina</p>
+      <p>Tel:011-421456-123</p>
+      <p>Email:Hmhomebank@gmail.com</p>
+    </div>
+
+  </footer>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 3000, });</script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+  <script src="./loan-application.js"></script>
+</body>
+
+</html>

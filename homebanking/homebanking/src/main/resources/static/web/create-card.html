@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>H.M Bank Tarjetas</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="shortcut icon" href="./assets/Mi proyecto-1.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="../login/style3.css">
+  <link rel="stylesheet" href="./stylecards.css">
+
+</head>
+
+<body>
+  <div class="d-flex flex-column" id="app">
+    
+    
+    <main class="d-flex flex-column maincards">
+      <nav class="d-flex justify-content-between">
+        <div class="divlogo"><img class="" src="../web/assets/Mi proyecto-1.png" alt=""></div>
+        <div class="dropdown divusuario ">
+          <h4 class="h-100 d-flex align-items-center text-white">{{cliente.firstName}}</h4>
+          <button class="h-100 d-flex align-items-center divusuario me-5 " data-bs-toggle="dropdown" aria-expanded="false"> <span class="material-symbols-outlined text-end text-white">logout</span></button>
+          <ul class="dropdown-menu">
+           
+            <li><a class="dropdown-item text-white " href="./configurations.html">Perfil</a></li>
+            <li v-if="cliente.email.includes('ADMINMINDHUB') || cliente.email.includes('ADMINSUPREMO')"><a class="dropdown-item text-white " href="../admin/create-loans.html">Crear Prestamo</a></li>
+            <li v-if="cliente.email.includes('ADMINSUPREMO')"><a class="dropdown-item text-white " href="../admin/admin.html">Administrar Clientes</a></li>
+            <li><a @:click="desconectar()" class="dropdown-item text-white fw-bolder" href="#">Cerrar sesion</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="d-flex separadorcuentas">
+        <div id="contenedordelmenu" class="navbar navbar-dark navbar-expand-md contenedormenu justify-content-center" >
+          <button class="navbar-toggler boton-collaps-menu" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" @:click="expandirElMenu()" >
+              <span class="navbar-toggler-icon"></span>
+              Menu</button>  
+          <div class="h-100 collapse navbar-collapse " id="navbarSupportedContent">                                                  
+              <div class="d-flex flex-column justify-content-around align-items-center h-100 w-100 menuflex  navbar-nav-dark">                           
+                <!--   <div class="w-100 text-center nav-item"><a class="p-2 w-100 text-center linknav" href="../login/index.html">Home</a> </div> -->
+                  <div class="w-100  text-center nav-item"><a class="p-2 w-100 text-center linknav " href="./accounts.html">Cuentas</a></div>
+                  <div class="w-100 text-center nav-item"><a class="p-2 w-100 text-center linknav" href="./Transfers.html">Transferencias</a></div>
+                  <div class="w-100  text-center nav-item"><a class="p-2 w-100 text-center linknav" href="./loan-application.html">Prestamos</a></div>
+                  <div class="w-100  text-center nav-item"><a class="p-2 w-100 text-center linknav" href="./cards.html">Tarjetas </a></div>
+                  <img class="rounded-pill imagendelnav nav-item" src="./assets/personamenu.png" alt="">
+              </div>                
+      </div>
+  </div>
+        <div class="contenedorcards d-flex flex-column">
+          <div class="d-flex  align-items-center flex-column ">
+            <h1 class="display-1 animate__animated animate__fadeInLeft fw-bolder">Pedi Tu Tarjeta</h1>
+            <span
+              class="material-symbols-outlined animate__animated animate__fadeInDown text-white iconobanco">account_balance</span>
+          </div>
+        <div class="divisorcards d-flex flex-column  align-items-center">          
+          <form class="d-flex flex-column">
+            <legend class="text-center">Que tipo de tarjeta desea solicitar?</legend>
+             <select class="seleccionador" v-model="tipoDeTarjeta">
+              <option value="" >Seleccione una opcion</option>
+              <option >Debito</option>
+              <option >Credito</option>
+             </select>
+             <div v-if="tipoDeTarjeta == 'Credito' || tipoDeTarjeta == 'Debito' ">
+              <legend class="text-center">De que color sera tu tarjeta?</legend>
+              <select  class="seleccionador"  v-model="tipoDeColor">
+                <option>Silver</option>
+                <option>Gold</option>
+                <option>Titanium</option>
+                </select>
+           </div>
+          </form>
+          <div v-if="tipoDeColor == 'Gold' && (tipoDeTarjeta == 'Credito' || tipoDeTarjeta == 'Debito') " class="card mt-5">
+            <div  class="card__front  card__part cardColorGold">
+              <img class="card__front-logo card__logo" src="./assets/Mi proyecto-1.png  ">
+              <div class="d-flex gap-2">
+                <img class="card__front-square card__square" src="./assets/mastercard.png">
+                <h5 class="text-warning" >Gold
+                 </h5>
+              </div>
+              <div class="d-flex">
+                <img class="card__logo mt-2" src="./assets/chip" alt="">
+                <p class="card_numer display-6">####-####-####-{{numeroRandom}}</p></div>
+              <div class="card__space-75">
+                <span class="card__label">Titular</span>
+                <p class="card__info ">{{cliente.firstName + " " + cliente.lastName}} </p>
+              </div>
+              <div class="card__space-25">
+                <span class="card__label">Expira</span>
+                <p class="card__info">{{mesQueEstoy + "/" + añoQueExpira}} </p>
+              </div>
+            </div>
+            <div class="card__back card__part cardColorGold">
+              <div class="card__black-line"></div>
+              <div class="card__back-content">
+                <div class="card__secret">
+                  <p class="card__secret--last"> </p>
+                </div>
+                <div ></div>
+              </div>
+            </div>
+          </div>   
+          <div v-if="tipoDeColor == 'Titanium' && (tipoDeTarjeta == 'Credito' || tipoDeTarjeta == 'Debito')" class="card mt-5">
+            <div  class="card__front  card__part cardColorTitanium">
+              <img class="card__front-logo card__logo" src="./assets/Mi proyecto-1.png  ">
+              <div class="d-flex gap-2">
+                <img class="card__front-square card__square" src="./assets/mastercard.png">
+                <h5 class="text-primary" >Titanium
+                 </h5>
+              </div>
+              <div class="d-flex">
+                <img class="card__logo mt-2" src="./assets/chip" alt="">
+                <p class="card_numer display-6">####-####-####-{{numeroRandom}}</p></div>
+              <div class="card__space-75">
+                <span class="card__label">Titular</span>
+                <p class="card__info ">{{cliente.firstName + " " + cliente.lastName}} </p>
+              </div>
+              <div class="card__space-25">
+                <span class="card__label">Expira</span>
+                <p class="card__info">{{mesQueEstoy + "/" + añoQueExpira}} </p>
+              </div>
+            </div>
+            <div class="card__back card__part cardColorTitanium">
+              <div class="card__black-line"></div>
+              <div class="card__back-content">
+                <div class="card__secret">
+                  <p class="card__secret--last"> </p>
+                </div>
+                <div ></div>
+              </div>
+            </div>
+          </div>   
+          <div v-if="tipoDeColor == 'Silver' && (tipoDeTarjeta == 'Credito' || tipoDeTarjeta == 'Debito')" class="card mt-5">
+            <div  class="card__front  card__part cardColorSilver">
+              <img class="card__front-logo card__logo" src="./assets/Mi proyecto-1.png  ">
+              <div class="d-flex gap-2">
+                <img class="card__front-square card__square" src="./assets/mastercard.png">
+                <h5 class="text-white" >Silver
+                 </h5>
+              </div>
+              <div class="d-flex">
+              <img class="card__logo mt-2" src="./assets/chip" alt="">
+              <p class="card_numer display-6">####-####-####-{{numeroRandom}}</p></div>
+              <div class="card__space-75">
+                <span class="card__label">Titular</span>
+                <p class="card__info ">{{cliente.firstName + " " + cliente.lastName}} </p>
+              </div>
+              <div class="card__space-25">
+                <span class="card__label">Expira</span>
+                <p class="card__info">{{mesQueEstoy + "/" + añoQueExpira}} </p>
+              </div>
+            </div>
+            <div class="card__back card__part cardColorSilver">
+              <div class="card__black-line"></div>
+              <div class="card__back-content">
+                <div class="card__secret">
+                  <p class="card__secret--last"> </p>
+                </div>
+                <div ></div>
+              </div>
+            </div>
+          </div>  
+          <div v-if= "(tipoDeColor == 'Silver' || tipoDeColor == 'Gold' || tipoDeColor == 'Titanium') && (tipoDeTarjeta == 'Credito' || tipoDeTarjeta == 'Debito')" >
+            <button @click="crearTarjeta()" class="botonSolicitarTarjeta">Solicitar</button>
+          </div> 
+          
+        </div>
+       </div>
+       </div>
+      <video muted autoplay loop>
+        <source src="./assets/video6.mp4" type="video/mp4">
+      </video>
+    </main>
+  </div>
+
+  <footer class="d-flex justify-content-center align-items-center footerspace">
+    <div class="cardfooter1 d-flex  gap-3">
+
+      <!-- <div class="w-20"> <a class="p-2 w-100  linkfooter" href="../login/index.html">Home</a> </div> -->
+      <div class="w-20"> <a class="p-2 w-100  linkfooter" href="./accounts.html">Cuentas</a></div>
+      <div class="w-20"> <a class="p-2 w-100  linkfooter" href="./Transfers.html">Transferencias</a>
+      </div>
+      <div class="w-20"> <a class="p-2 w-100  linkfooter" href="./loan-application.html">Prestamos</a>
+      </div>
+      <div class="w-20"> <a class="p-2 w-100  linkfooteractive fw-bolder" href="#">Tarjetas </a>
+      </div>
+    </div>
+    <div class="cardfooter d-flex justify-content-center"> <img class="cardfooterimg"
+        src="../web/assets/Mi proyecto-1.png" alt=""></div>
+
+    <div class="cardfooter2 d-flex text-end flex-column text-white">
+      <h3 class="text-white  w-100">Contacto</h3>
+      <p>Sarmiento 238, Buenos Aires Capital Argentina</p>
+      <p>Tel:011-421456-123</p>
+      <p>Email:Hmhomebank@gmail.com</p>
+    </div>
+
+  </footer>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 3000, });</script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+  <script src="./create-card.js"></script>
+</body>
+
+</html>

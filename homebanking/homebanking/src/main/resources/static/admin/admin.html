@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H.M Bank ADMIN</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="shortcut icon" href="./assets/Mi proyecto-1.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./style-admin.css">
+</head>
+
+<body>
+    <div class="d-flex flex-column" id="app">
+        <nav class="navbar navbar-expand-lg text-white">
+            <div class="container-fluid">
+                <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon-dark text-white"></span>
+                </button>
+                <div class="collapse navbar-collapse text-white d-flex justify-content-around"
+                    id="navbarSupportedContent">
+                    <div class="w-20"> <a class="p-2 w-100  linkfooter " href="../web/accounts.html">Cuentas</a></div>
+                    <div class="w-20"> <a class="p-2 w-100  linkfooter" href="../web/Transfers.html">Transferencias</a>
+                    </div>
+                    <div class="w-20"> <a class="p-2 w-100  linkfooter"
+                            href="../web/loan-application.html">Prestamos</a>
+                    </div>
+                    <div class="w-20"> <a class="p-2 w-100  linkfooter" href="../web/cards.html">Tarjetas </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <main>
+            {{filtraCliente}}
+            <h1 class="titulo">Administrardor de clientes</h1>
+            <label >
+                Buscar cliente por Email
+                <input v-model="buscadorCliente" type="search">
+
+            </label>
+
+          
+
+
+          <!--   <nav class="navbar navbar-expand-lg text-white">
+                <div class="container-fluid">
+                    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon-dark text-white"></span>
+                    </button>
+                    <div class="collapse navbar-collapse text-white d-flex justify-content-around"
+                        id="navbarSupportedContent">
+                        <div class="w-20"> <button class="p-2 w-100  btn-administrador ">Clientes</button></div>
+                        <div class="w-20"> <button class="p-2 w-100  btn-administrador ">Cuentas</button></div>
+                        <div class="w-20"> <button class="p-2 w-100  btn-administrador">Transferencias</button>
+                        </div>
+                        <div class="w-20"> <button class="p-2 w-100  btn-administrador">Prestamos</button>
+                        </div>
+                        <div class="w-20"> <button class="p-2 w-100  btn-administrador">Tarjetas</button>
+                        </div>
+                    </div>
+                </div>
+            </nav> -->
+
+            <table  id="tabla-clientes">
+                <thead >
+                    <tr class="d-flex justify-content-between ">
+
+                        <th class="display-7 text-center fw-bolder ">Numero</th>
+                        <th class="display-7 text-center fw-bolder ">Nombre</th>
+                        <th class="display-7 text-center fw-bolder ">Apellido</th>
+                        <th class="display-7 text-center fw-bolder ">Email</th>
+                        <th class="display-7 text-center fw-bolder ">Cuentas</th>
+                        <th class="display-7 text-center fw-bolder ">Movimientos</th>
+                        <th class="display-7 text-center fw-bolder ">Prestamos</th>
+                        <th class="display-7 text-center fw-bolder ">Tarjetas</th>
+
+                    </tr>
+                </thead>
+                <tbody class="tabla-clientes mt-5">
+                     <template v-for="cliente in Clientes" class="mt-2">
+                      <tr  class=" d-flex justify-content-between  mb-3  ">
+                        <td class="text-center fw-bolder td-client">{{cliente.id}}</td>
+                        <td class="text-center fw-bolder td-client">{{cliente.firstName}}</td>
+                        <td class="text-center fw-bolder td-client">{{cliente.lastName}}</td>
+                        <td class="text-center fw-bolder td-client">{{cliente.email}}</td>
+                        <td class="text-center fw-bolder td-client d-flex flex-column "><button @click="clienteParaImprimir(cliente.id)" data-bs-toggle="modal"data-bs-target="#modal-cuentas" class=" btn-administrador ps-2 pe-2">{{cliente.accounts.length}}</button></td>
+                        <td class= "text-center fw-bolder td-client d-flex flex-column"><button  @click="clienteParaImprimir(cliente.id)"data-bs-toggle="modal"data-bs-target="#modal-movimientos" class=" btn-administrador ps-2 pe-2"><span class="material-symbols-outlined">swap_vert </span></button> </td>
+                        <td class="text-center fw-bolder td-client d-flex flex-column"><button @click="clienteParaImprimir(cliente.id)" class=" btn-administrador ps-2 pe-2" data-bs-toggle="modal"  data-bs-target="#modal-prestamo">{{cliente.loans.length}}</button></td>
+                        <td class="text-center fw-bolder d-flex flex-column td-client"><button @click="clienteParaImprimir(cliente.id)" class=" btn-administrador ps-2 pe-2" data-bs-toggle="modal" data-bs-target="#modal-tarjeta">{{cliente.cards.length}}</button></td>
+                        <!-- Modal cuenta -->
+                        <div class="modal fade" id="modal-cuentas" tabindex="-1" aria-labelledby="exampleModalLabel"aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header d-flex justify-content-center">
+                                        <h1 class="modal-title fs-5 " id="exampleModalLabel">Cuentas</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <template v-for="cuenta in clienteSeleccionado[0].accounts">
+                                        <div  class="modal-body">
+                                            <p >Numero: {{cuenta.id}} </p>
+                                            <p >Nombre: {{cuenta.number}} </p>
+                                            <p >fecha de creacion: {{cuenta.creationDate}} </p>
+                                            <p >saldo: {{cuenta.ballance}} </p>
+                                            <p >tipo de cuenta: {{cuenta.accountType}} </p>
+                                            <div class="d-flex justify-content-around"> 
+                                             <!-- <button  @click="borrarCuenta(cuenta.id)" class="btn-administrador">Modificar Cuenta</button> -->
+                                             <button  @click="borrarCuenta(cuenta.id)" class="btn-administrador">Eliminar Cuenta</button>
+                                         </div>
+                                           
+                                         </div>
+                                    </template>
+                                 
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal prestamo -->
+                        <div class="modal fade" id="modal-prestamo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header d-flex justify-content-center">
+                                    <h1 class="modal-title fs-5 " id="exampleModalLabel">Prestamos</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div v-for="prestamo in clienteSeleccionado[0].loans" class="modal-body">
+                                   <p >Numero: {{prestamo.id}} </p>
+                                   <p >Tipo: {{prestamo.name}} </p>
+                                   <p >monto: {{prestamo.amount}} </p>
+                                   <p >coutas: {{prestamo.payments}} </p>
+                                   <div class="d-flex justify-content-around"> 
+                                    <button class="btn-administrador">Eliminar Prestamo</button>
+                                </div>
+                                  
+
+                                </div>
+                                <div class="modal-footer">
+
+                                </div>
+                            </div>
+                        </div>
+                       </div>
+                     <!-- Modal Tarjeta -->
+                       <div class="modal fade" id="modal-tarjeta" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                     <div class="modal-dialog">
+                         <div class="modal-content">
+                             <div class="modal-header d-flex justify-content-center">
+                                 <h1 class="modal-title fs-5 " id="exampleModalLabel">Tarjetas</h1>
+                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                     aria-label="Close"></button>
+                             </div>
+                             <div v-for="tarjeta in clienteSeleccionado[0].cards" class="modal-body">
+                                <p >Numero: {{tarjeta.id}} </p>
+                                <p >Tipo: {{tarjeta.cardType}} </p>
+                                <p >Numero de tarjeta: {{tarjeta.number}} </p>
+                                <p >color tarjeta: {{tarjeta.cardColor}} </p>
+                                <p >fecha creacion: {{tarjeta.fromDate}} </p>
+                                <p >fecha vencimiento: {{tarjeta.thruDate}} </p>
+                                <div class="d-flex justify-content-around"> 
+                                 <button @click="borrarTarjeta(tarjeta.id)" class="btn-administrador">Eliminar Tarjeta</button>
+                             </div>
+                               
+
+                             </div>
+                             <div class="modal-footer">
+
+                             </div>
+                         </div>
+                     </div>
+                      </div>
+                   <!-- Modal Transacciones -->
+                      <div class="modal fade" id="modal-movimientos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                   <div class="modal-dialog">
+                       <div class="modal-content">
+                           <div class="modal-header d-flex justify-content-center">
+                               <h1 class="modal-title fs-5 " id="exampleModalLabel">Movimientos</h1>
+                               <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                   aria-label="Close"></button>
+                           </div>
+                           <div v-for="cuenta in clienteSeleccionado[0].accounts" class="modal-body">
+                              <p >Cuenta: {{cuenta.number}} </p>
+                              <p> Movimientos: 
+                                <span class="d-flex flex-column mt-5 " v-for="movimiento in cuenta.transaction" >
+                                     <span>Numero : {{movimiento.id}}</span>
+                                     <span>Tipo: {{movimiento.type}}</span>
+                                     <span>Monto:  {{movimiento.amonunt}}</span>
+                                     <span>Descripcion: {{movimiento.description}}</span>
+                                     <span>Fecha: {{movimiento.date}}</span>
+                                     <span>Balance cuenta: {{movimiento.ballance}}</span>
+                                     <button class="btn-administrador">Eliminar movimiento</button>
+                               </span>
+                             </p>  
+                           </div>
+                             
+
+                           </div>
+                        
+                       </div>
+                      </div>             
+                    </tr>
+                     </template>
+
+                </tbody>
+            </table>
+       
+
+
+        </main>
+    </div>
+
+    <footer class="d-flex justify-content-center align-items-center footerspace">
+        <div class="cardfooter1 d-flex  gap-3">
+
+            <!-- <div class="w-20"> <a class="p-2 w-100  linkfooter" href="../login/index.html">Home</a> </div> -->
+            <div class="w-20"> <a class="p-2 w-100  linkfooteractive fw-bolder" href="../web/accounts.html">Cuentas</a>
+            </div>
+            <div class="w-20"> <a class="p-2 w-100  linkfooter" href="../web/Transfers.html">Transferencias</a>
+            </div>
+            <div class="w-20"> <a class="p-2 w-100  linkfooter" href="../web/loan-application.html">Prestamos</a>
+            </div>
+            <div class="w-20"> <a class="p-2 w-100  linkfooter" href="../web/cards.html">Tarjetas </a>
+            </div>
+        </div>
+        <div class="cardfooter d-flex justify-content-center"> <img class="cardfooterimg"
+                src="../web/assets/Mi proyecto-1.png" alt=""></div>
+
+
+        <div class="cardfooter2 d-flex text-end flex-column text-white">
+            <h3 class="text-white  w-100">Contacto</h3>
+
+            <p>Sarmiento 238, Buenos Aires Capital Argentina</p>
+            <p>Tel:011-421456-123</p>
+            <p>Email:Hmhomebank@gmail.com</p>
+
+        </div>
+
+
+    </footer>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 3000, });</script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+    <script src="./admin.js"></script>
+</body>
+
+</html>

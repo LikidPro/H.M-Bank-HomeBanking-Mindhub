@@ -1,0 +1,40 @@
+/* header {
+    min-height: 10vh;
+    width: 100%;
+    background-color: #160015;
+
+
+  }
+  header img {   
+    height: 48%;
+    width: 3%;
+  } */
+  .usericono {
+    max-height: 60%;
+  }
+  .divlogo {
+   
+    width: 15%;
+    display: flex;
+    justify-content: center;
+  }
+  nav {
+    max-height: 4%;
+    /* background: linear-gradient(90deg, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 1) 20%, #160015 35%, #160015 40%, #160015 57%, #160015 60%, #160015 65%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 1) 90%); */
+    background-color: #160015;
+    display: flex;
+  }
+  .divusuario {
+    /* justify-self: flex-end; */
+    width: 15%;
+    display: flex;
+    justify-content: center;
+  }
+  nav img {
+    max-height: 100%;
+  }
+  @media screen and (max-width: 729px){
+    nav{
+      max-height: 3%;
+    }
+  }

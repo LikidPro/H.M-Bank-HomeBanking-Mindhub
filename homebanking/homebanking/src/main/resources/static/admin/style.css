@@ -1,0 +1,25 @@
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+   /*  border: solid crimson .1rem; */
+}
+.divcentral{
+    width: 60%;
+    min-height: 20vh;
+  
+}
+
+/* 
+.divdatos{
+    width: 50%;
+} */
+
+table{
+    width: 80% !important;
+}
+input{
+    border: solid black .1rem !important;
+}

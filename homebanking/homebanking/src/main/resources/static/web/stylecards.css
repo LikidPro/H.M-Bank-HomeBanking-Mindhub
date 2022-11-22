@@ -1,0 +1,569 @@
+@import url('./stylecrete-card.css');
+.maincards{
+  height: 100vh;
+}
+
+.contenedorcards{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.divisorcards{
+  width: 100%;
+  height: 70%;
+  align-content: flex-start;
+}
+.tarjetacredito{
+    width: 100%;
+    min-height: 50%;    
+    display: flex;
+    align-items: center;
+   justify-content: space-around;
+}
+.tarjetadesactivada{
+  display: none !important;
+}
+
+.titulocard{
+    background-color: #1e001dda;
+    border-radius: 1rem;
+    width: 50%;
+    text-align: center; 
+     
+}
+.selectorDeCards{
+  border-radius: 1rem;
+  font-size: 1.4rem;
+  font-weight: bolder;
+  background-color:  white;
+  color: #160015;
+}
+.selectorDeCards:hover{
+  transform: scale(1.1);
+  background-color:  #160015;
+  color: white; 
+  transition: 1s; 
+}
+
+.contenedormenu{
+  height: 100% ;
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, #fff8fe 0%, #ffffff 31%, #ffffff 100%);   
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #240020;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    align-self: center;
+  }
+  .btn-grad:hover {
+    color: white !important;
+    background-position: right center;
+    background-image: linear-gradient(to right, #160015   0%,#160015 30%,  #fcfcfc   40%,#160015  60%, #160015 100%) !important;
+    text-decoration: none;
+    box-shadow: 0 0 20px #eee;;
+    transition: 1s;
+  }
+  .swal2-popup{
+    background-color: #160015 !important;
+    color: white !important;
+    font-size: 1.5rem !important;
+    font-weight: bolder !important;
+  }
+  .swal2-confirm{
+    background-image: linear-gradient(to right, #fff8fe 0%, #ffffff 31%, #ffffff 100%)  !important;
+    text-align: center  !important;
+    text-transform: uppercase  !important;
+    transition: 0.5s  !important;
+    background-size: 200% auto  !important;
+    color: #240020  !important;
+    box-shadow: 0 0 20px #eee  !important;
+    border-radius: 10px  !important;
+    display: block  !important;
+    font-size: 2rem  !important;
+    width: 100%  !important;
+    align-self: center  !important;
+  }
+
+.card{
+width: 400px;
+height: 260px;
+background: transparent;
+border: none;
+}
+.card__part{
+  box-shadow: 1px 1px #aaa3a3;
+  top: 0;
+  position: absolute;
+  z-index: 1000;
+  left: 0;
+  display: inline-block;
+    width: 100%;
+    height: 100%;    
+    border-radius: 8px;
+    background-image:linear-gradient(to right bottom, #160015, #160015, #160015, #1e001d, #2a0028); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    -webkit-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -moz-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -ms-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -o-transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+}
+
+.cardColorGold{
+  background: linear-gradient(to  bottom , #110010 20%, #FFC107 97%,#110010 100% )
+ 
+  
+}
+.cardColorSilver{
+  background: linear-gradient(to  bottom , #110010 20%, rgb(176, 175, 175) 97%,#110010 100% )
+
+}
+.cardColorTitanium{
+  background: linear-gradient(to  bottom , #110010 20%, rgb(91, 64, 208) 97%,#110010 100% )
+}
+
+.card__front{
+  padding: 18px;
+-webkit-transform: rotateY(0);
+-moz-transform: rotateY(0);
+}
+
+.card__back {
+  padding: 18px 0;
+-webkit-transform: rotateY(-180deg);
+-moz-transform: rotateY(-180deg);
+}
+
+.card__black-line {
+    margin-top: 5px;
+    height: 48px;
+    background-color: #303030;
+}
+
+.card__logo {
+    height: 36px;
+}
+
+.card__front-logo{
+      position: absolute;
+    top: 18px;
+    right: 18px;
+}
+.card__square {
+    /* border-radius: 5px; */
+    height: 50px;
+    
+}
+
+
+.card_numer {
+    display: block;
+    width: 100%;
+    word-spacing: 4px;
+    font-size: 25px;
+    letter-spacing: 2px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+
+.card__space-75 {
+    width: 75%;
+    float: left;
+}
+
+.card__space-25 {
+    width: 25%;
+    float: left;
+}
+
+.card__label {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 1px;
+}
+
+.card__info {
+    margin-bottom: 0;
+    margin-top: 5px;
+    font-size: 26px;
+    line-height: 18px;
+    color: #fff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.card__back-content {
+    padding: 15px 15px 0;
+}
+.card__secret--last {
+    color: #303030;
+    text-align: right;
+    margin: 0;
+    font-size: 14px;
+}
+
+.card__secret {
+    padding: 5px 12px;
+    background-color: #fff;
+    position:relative;
+}
+
+.card__secret:before{
+  content:'';
+  position: absolute;
+top: -3px;
+left: -3px;
+height: calc(100% + 6px);
+width: calc(100% - 42px);
+border-radius: 4px;
+  background: repeating-linear-gradient(45deg, #ededed, #ededed 5px, #f9f9f9 5px, #f9f9f9 10px);
+}
+
+.card__back-logo {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+.card__back-square {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+.voltear {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+}
+
+.girar{
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+}
+.botoncard{
+    width: 40%;
+    z-index: 1000;
+   
+}
+.crearunacuenta{
+  height: 3vh;
+  width: 300px;
+  background-color:  rgba(255, 255, 255, 0.869) ;
+  border-radius: 2rem;
+  color:#160015 ;
+  text-decoration: none;
+  box-shadow:  #eae6e6 .1rem .1rem .2rem .2rem;
+  font-size: 1.7rem;
+  text-align: center;
+}
+.crearunacuenta:hover{
+  color: #000;
+  background-color: #ffffff;
+  transition: .5s ease-out;
+  transform: scale(1.1)
+}
+.botonactivo{
+  background-color:  #160015 !important;
+  color: white !important;
+}
+.botones-mover-eliminar-card{
+  width: 100%;
+}
+
+
+@media screen and (max-width: 1980px) {
+
+  
+ .titulocard{
+  width: 50%;
+  margin-top: 4rem !important;
+ }
+}
+@media screen and (max-width: 1820px){
+  .card{
+    width:360px;
+    height: 250px;
+    background: transparent;
+    border: none;
+    }
+    .tarjetacredito{
+      gap: 0 !important;
+      width: 100% !important;
+      margin: 0!important;
+      height: 80%;
+    }
+    .contenedorcards{
+      width: 90% !important;
+      margin: 0 !important;
+    }
+    
+}
+@media screen and (max-width: 1440px){
+  .crearunacuenta{
+    height: 4vh;
+  }}
+  @media screen and (max-width: 1340px){
+    .contenedorcards{
+    width: 100% !important;
+    }
+
+}
+
+@media screen and (max-width: 1280px){
+  .separadorcuentas{
+  top: 4%;
+  width: 100% !important;
+}
+.crearunacuenta{
+  width: 200px;
+}
+.contenedorcards{
+  justify-content: flex-start !important;
+  width: 100% !important;
+  height: 100% !important;
+  gap: 0 !important;
+}
+.tarjetacredito{
+  width: 100% !important;
+  height: 90%;
+  /* align-content: flex-end !important; */
+ 
+}
+.divisorcards{
+  height: 50%;
+  width: 100% !important;
+}
+.titulos-cards{
+  height: 40% !important;
+  margin: 0;
+  z-index: 1;
+}
+.card{
+  width: 300px;
+  height: 200px;
+  }
+
+  
+  .card__front{
+    padding: 10px;
+
+  }
+  
+  .card__back {
+    padding: 10px 0;
+
+  }
+  
+  .card__black-line {
+      margin-top: 5px;
+      height: 38px;
+      background-color: #303030;
+  }
+  
+  .card__logo {
+      height: 26px;
+  }
+  
+  .card__front-logo{
+        position: absolute;
+      top: 28px;
+      right: 18px;
+  }
+  .card__square {
+      /* border-radius: 5px; */
+      height: 30px;
+      
+  }
+  
+  .card_numer {   
+      width: 100%;
+      word-spacing: 2px;
+      font-size: 20px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      margin-top: 20px;
+  }
+  
+  .card__label {
+      font-size: 10px;
+   
+  }
+  
+  .card__info {
+      margin-bottom: 0;
+      margin-top: 5px;
+      font-size: 16px;
+      line-height: 18px;
+      color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .card__back-content {
+      padding: 15px 15px 0;
+  }
+  .card__secret--last {
+      color: #303030;
+      text-align: right;
+      margin: 0;
+      font-size: 14px;
+  }
+  
+  .card__secret {
+      padding: 5px 12px;
+      background-color: #fff;
+      position:relative;
+  }
+  
+  .card__secret:before{
+    content:'';
+    position: absolute;
+  top: -3px;
+  left: -3px;
+  height: calc(100% + 6px);
+  width: calc(100% - 42px);
+  border-radius: 4px;
+    background: repeating-linear-gradient(45deg, #ededed, #ededed 5px, #f9f9f9 5px, #f9f9f9 10px);
+    
+  }
+  
+  .card__back-logo {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+  }
+  .card__back-square {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+  }
+  .crearunacuenta{
+    height: 5vh;
+  }
+
+}
+@media screen and (max-width: 888px){
+ 
+  .tarjetacredito{
+    width: 100%; 
+    /* align-content: flex-start !important; */
+    height: 65%;
+    align-content: flex-start;
+  }
+  .divisorcards{
+    height: 80%;
+    width: 100% !important;
+    flex-direction: column !important;
+    align-items: center;
+  }
+  .contenedorcards{
+    width: 100%;
+    
+  }
+  .maincards{
+    height: 130vh;
+  }
+  .separadorcuentas{
+    height: 130vh;
+    top: 5.4%;
+  }
+  .titulocard{
+    width: 80%;
+
+  }
+  .titulos-cards{
+    height: 30% !important;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 730px){
+
+  .maincards{
+  height: 240vh;
+}
+.botonesdelascard{
+  flex-direction: column !important;
+}
+.separadorcuentas{
+  top: 7.4% !important; 
+  height: 240vh;
+}
+.titulocard{
+  width: 80%;
+}
+.tarjetacredito{
+  
+  width: 100%;
+  height: 100% !important;
+
+  gap: 1rem !important;
+
+}
+.card{
+  /* margin-top: 2rem !important; */
+  width: 370px;
+  height: 250px;
+  background: transparent;
+  border: none;
+  }
+  .divisorcards{
+    height: 60% ;
+  }
+ 
+  .card_numer{
+    font-size: 1.4rem;
+  }
+
+}
+@media screen and (max-width: 575px){
+  .separadorcuentas{
+    top: 9.5%;
+  
+  }
+}
+@media screen and (max-width: 375px){
+
+ 
+  .card{
+  width: 350px;
+  height: 270px;
+}
+.card_numer{
+  font-size: 1.5rem;
+}
+.card__info{
+  font-size: 1.3rem !important;
+}
+.card__front-square{
+  display: none;
+}
+}
+@media screen and (max-width: 320px){
+ .maincards{
+  height: 320vh;
+ }
+ .separadorcuentas{
+  height: 320vh;
+  top:9.5% !important;
+ }
+  .card{
+    width: 310px;
+  }
+ 
+}

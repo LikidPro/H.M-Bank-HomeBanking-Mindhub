@@ -1,0 +1,90 @@
+@import url("../login/footer.css");
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ /*    border: solid red .1rem; */
+}
+main{
+    background-color: #160015;
+}
+
+nav{
+    height: 7vh;
+    background-color:#160015 ;
+    width: 100%;
+ 
+}
+thead{
+    background-color: #eee;
+}
+.btn-administrador{
+    background-image: linear-gradient(to right, #fff8fe 0%, #ffffff 31%, #ffffff 100%);   
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #240020;
+ /*    box-shadow: 0 0 20px #eee; */
+    border-radius: 10px;
+    display: block;
+    align-self: center;
+  
+}
+
+.btn-administrador:hover {
+color: white !important;
+background-position: right center;
+background-image: linear-gradient(to right, #160015   0%,#160015 30%,  #fcfcfc   40%,#160015  60%, #160015 100%) !important;
+text-decoration: none;
+box-shadow: 0 0 20px #eee;;
+transition: 1s;
+}
+table{
+    height: 86vh;
+    width: 100%;
+    background-image: url(../web/assets/Mi\ proyecto-1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+ 
+}
+.td-client{
+    width: 13% !important;
+
+
+}
+th{
+    width: 13% !important;
+   
+}
+tbody{
+    background-color: #160015;
+    color: white ;
+  
+}
+tr{
+    border: solid .1rem white;
+}
+.modal-content{
+    background-color:#160015 ;
+}
+.titulo{
+    width: 100%;
+    background-color: #160015;
+    height: 7vh;
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+}
+label{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #160015;
+    margin-bottom: 1rem;
+    color: white;
+    gap: 1rem;
+}
+label input{
+    border-radius: 5px;
+}
