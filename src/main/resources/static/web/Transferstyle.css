@@ -1,4 +1,4 @@
-
+@import url('./stylecrete-card.css'); 
 .cuentas{
  height: 100%;
  width: 30%;
@@ -13,6 +13,9 @@
 .contenedorcards{
     justify-content: flex-start !important;
     
+}
+#selec-destino{
+width: 300px !important;
 }
 
 .cuentaSeleccionada{

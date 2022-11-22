@@ -296,7 +296,10 @@
     min-width: 0% !important;
     margin: 0 !important;
    }
-  @media screen and (max-width:1440px) {
+  @media screen and (max-width:1980px) {
+    .container{
+      max-height: 200px;
+    }
     .bancopresentacion{
       height: 30%;
       gap: .5rem !important;
@@ -306,7 +309,7 @@
       padding: 0 !important;
     }
   }
-  @media screen and (max-width:1280px){
+  @media screen and (max-width:1900px){
     
     .bancopresentacion{
       height: 25%;

@@ -22,8 +22,6 @@
 
 <body>
   <div class="d-flex flex-column" id="app">
-    
-    
     <main class="d-flex flex-column maincards">
       <nav class="d-flex justify-content-between">
         <div class="divlogo"><img class="" src="../web/assets/Mi proyecto-1.png" alt=""></div>
@@ -62,8 +60,8 @@
           </div>
         <div class="divisorcards d-flex flex-column  align-items-center">          
           <form class="d-flex flex-column form1">
-            <legend class="text-center">¿A quien desea transferir?</legend>
-             <select class="seleccionador text-center" v-model="tipoDeDestino">
+            <legend class="text-center ">¿A quien desea transferir?</legend>
+             <select id="selec-destino" class="seleccionador text-center" v-model="tipoDeDestino">
               <option value="" >Seleccione una opcion</option>
               <option >A mi</option>
               <option >A terceros</option>

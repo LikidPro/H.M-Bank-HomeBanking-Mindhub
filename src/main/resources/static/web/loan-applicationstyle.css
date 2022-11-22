@@ -1,3 +1,4 @@
+ @import url('./stylecrete-card.css'); 
 .formPrestamo{
     height: 90%;
     width: 60%;
@@ -80,7 +81,7 @@
         width: 70%;
     }
   }
-  @media screen and (max-width: 1024px){
+  @media screen and (max-width: 1364px){
     .divisorcards{
         height: 100% !important;
         justify-content: flex-start !important;
